@@ -53,7 +53,7 @@ async def server_status(interaction: discord.Interaction):
         await interaction.followup.send(f"🔴 **{SERVER_LABEL} 닫혀 있음.** 현재 접속 불가\n(포트포워딩/방화벽/서버 상태를 확인하세요.)")
 
 # /ping 명령: tries 인자(기본 5, 최대 20)
-@bot.tree.command(name="ping", description="서버의 실제 지연시간을 측정합니다. (IP는 표시하지 않습니다)")
+@bot.tree.command(name="ping", description="서버의 실제 지연시간을 측정합니다.)")
 @app_commands.describe(tries="측정 시도 횟수 (1~20, 기본 5)")
 async def ping(interaction: discord.Interaction, tries: int = 5):
     await interaction.response.defer()  # 슬래시 커맨드 대기 표시
