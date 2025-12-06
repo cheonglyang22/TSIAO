@@ -93,7 +93,7 @@ async def ping(interaction: discord.Interaction, tries: int = 5):
 
     embed = discord.Embed(
         title=f"{SERVER_LABEL} 핑 결과",
-        description="(서버 IP는 개인정보 보호를 위해 표시하지 않습니다)",
+        description="(PORT:25565의 왕복 지연시간 측정)",
         color=0x2F3136
     )
     embed.add_field(name="요청자", value=interaction.user.mention, inline=True)
