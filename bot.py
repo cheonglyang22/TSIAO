@@ -48,9 +48,9 @@ async def server_status(interaction: discord.Interaction):
     await interaction.response.defer()
     ok, _ = await asyncio.to_thread(measure_once, SERVER_IP, SERVER_PORT, 1.0)
     if ok:
-        await interaction.followup.send(f"🟢 **{SERVER_LABEL} 열려 있음! 접속 가능해요!**\n(민감 정보는 표시하지 않습니다.)")
+        await interaction.followup.send(f"🟢 **{SERVER_LABEL} 열려 있음! 접속 가능해요!**")
     else:
-        await interaction.followup.send(f"🔴 **{SERVER_LABEL} 닫혀 있음.** 현재 접속 불가\n(포트포워딩/방화벽/서버 상태를 확인하세요.)")
+        await interaction.followup.send(f"🔴 **{SERVER_LABEL} 닫혀 있음.** 현재 접속 불가")
 
 # /ping 명령: tries 인자(기본 5, 최대 20)
 @bot.tree.command(name="ping", description="서버의 실제 지연시간을 측정합니다.)")
@@ -83,7 +83,6 @@ async def ping(interaction: discord.Interaction, tries: int = 5):
             f"🔴 **{SERVER_LABEL}에 연결할 수 없습니다.** 모든 시도({tries}) 실패했습니다.\n"
             f"요청자: {interaction.user.mention}\n"
             f"웹소켓 핑 (봇 ↔ Discord): `{ws_ping} ms`\n\n"
-            f"(참고: IP/민감 정보는 표시하지 않습니다)"
         )
         return
 
